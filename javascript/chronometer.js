@@ -22,16 +22,16 @@ class Chronometer {
     return seconds;
     // ... your code goes here
   }
-  twoDigitsNumber() {
+  twoDigitsNumber(number) {
     if (this.currentTime < 10) {
-      return this.currentTime.toLocaleString(this.currentTime, {minimumIntegerDigits:2}); 
+      return `0${number}`;  
     }
+    return number;
     // ... your code goes here
   }
   stopClick() {
-    if (this.currentTime > 60) {
-      clearInterval(this.currentTime);
-    }
+      clearInterval(this.intervalId);
+  
     // ... your code goes here
   }
   resetClick() {
@@ -39,6 +39,9 @@ class Chronometer {
     // ... your code goes here
   }
   splitClick() {
+    let minutes = this.twoDigitsNumber(this.getMinutes());
+    let seconds = this.twoDigitsNumber(this.getSeconds());
+    return `${minutes}:${seconds}`;
     // ... your code goes here
   }
 }
